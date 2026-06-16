@@ -1,0 +1,9 @@
+{
+  "version": "1",
+  "name": "JSON Place Holder",
+  "type": "collection",
+  "ignore": [
+    "node_modules",
+    ".git"
+  ]
+}

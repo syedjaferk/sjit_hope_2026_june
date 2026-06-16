@@ -1,0 +1,19 @@
+meta {
+  name: Create a TODO
+  type: http
+  seq: 3
+}
+
+post {
+  url: https://jsonplaceholder.typicode.com/todos
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "title": "fo",
+    "body": "bar",
+    "userId": 1
+    }
+}
