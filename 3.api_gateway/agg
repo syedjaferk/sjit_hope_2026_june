@@ -1,0 +1,28 @@
+{
+  "version": 3,
+  "port": 8080,
+
+  "endpoints": [
+    {
+      "endpoint": "/customer/{user_id}",
+
+      "backend": [
+        {
+          "group": "user",
+          "host": [
+            "http://user-service:8000"
+          ],
+          "url_pattern": "/users/{user_id}"
+        },
+
+        {
+          "group": "orders",
+          "host": [
+            "http://order-service:8000"
+          ],
+          "url_pattern": "/orders/user/{user_id}"
+        }
+      ]
+    }
+  ]
+}
