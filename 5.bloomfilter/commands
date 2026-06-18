@@ -1,0 +1,10 @@
+locust -f locustfile.py \
+  --host=http://localhost:8000 \
+  --headless \
+  -u 500 \
+  -r 50 \
+  -t 5m
+
+
+
+wrk -t8 -c500 -d60s http://localhost:8000/usernames/user123
