@@ -18,6 +18,7 @@ services:
     container_name: haproxy
     ports:
       - "8081:80"
+      - "8404:8404"
     volumes:
       - ./haproxy/round_robin.cfg:/usr/local/etc/haproxy/haproxy.cfg
     depends_on:
