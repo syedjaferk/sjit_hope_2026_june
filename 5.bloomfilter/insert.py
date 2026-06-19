@@ -7,7 +7,7 @@ class UsernameInsertUser(HttpUser):
     @task
     def insert(self):
         self.client.post(
-            "/usernames",
+            "/upload",
             json={
                 "username": f"user-{uuid.uuid4()}"
             },

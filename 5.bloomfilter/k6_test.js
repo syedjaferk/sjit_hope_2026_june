@@ -3,12 +3,17 @@ import http from "k6/http";
 export default function () {
   const username = `user_${Math.floor(Math.random() * 1000000)}`;
 
-  if (Math.random() < 0.1) {
-    http.post("http://localhost:8000/usernames", JSON.stringify({ username }), {
-      headers: { "Content-Type": "application/json" },
-    });
+  if (Math.random() < 0.5) {
+    http.post(
+      `http://10.1.43.116:8080/bloom/add`,
+      JSON.stringify({ value: username }),
+      {
+        headers: { "Content-Type": "application/json" },
+      },
+    );
+    // http.post(`http://10.1.43.116:8080/bloom/add/${username}`);
   } else {
-    http.get(`http://localhost:8000/usernames/${username}`);
+    http.get(`http://10.1.43.116:8080/bloom/username/${username}`);
   }
 }
 
