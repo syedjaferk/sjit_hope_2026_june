@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Live Stock Market</title>
+    </head>
+    <body>
+        <h2>📈 Live Stock Market Feed</h2>
+
+        <table border="1" cellpadding="10">
+            <thead>
+                <tr>
+                    <th>Symbol</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody id="stocks"></tbody>
+        </table>
+
+        <script>
+            const stocks = {};
+
+            const socket = new WebSocket("ws://localhost:8000/ws");
+
+            socket.onopen = () => {
+                socket.send("subscribe");
+            };
+
+            socket.onmessage = (event) => {
+                const [symbol, price] = event.data.split("|");
+
+                stocks[symbol] = price;
+
+                render();
+            };
+
+            function render() {
+                let html = "";
+
+                for (const symbol in stocks) {
+                    html += `
+        <tr>
+            <td>${symbol}</td>
+            <td>${stocks[symbol]}</td>
+        </tr>
+        `;
+                }
+
+                document.getElementById("stocks").innerHTML = html;
+            }
+        </script>
+    </body>
+</html>
