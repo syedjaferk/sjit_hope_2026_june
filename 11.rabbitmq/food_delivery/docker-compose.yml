@@ -1,0 +1,29 @@
+version: "3.9"
+
+services:
+  rabbitmq:
+    image: rabbitmq:management
+
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+
+  api:
+    build: .
+    ports:
+      - "8000:8000"
+
+    depends_on:
+      - rabbitmq
+
+  payment-worker:
+    build: .
+    command: celery -A workers.payment_worker worker --loglevel=info
+
+  notification-worker:
+    build: .
+    command: celery -A workers.notification_worker worker --loglevel=info
+
+  analytics-worker:
+    build: .
+    command: celery -A workers.analytics_worker worker --loglevel=info

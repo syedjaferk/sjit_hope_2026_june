@@ -1,8 +1,8 @@
 <script>
-setInterval(async () => {
-    const res = await fetch("http://localhost:8000/updates");
-    const data = await res.json();
+    setInterval(async () => {
+        const res = await fetch("http://localhost:8001/updates");
+        const data = await res.json();
 
-    console.log(data);
-}, 5000);
+        console.log(data);
+    }, 5000);
 </script>

@@ -1,12 +1,7 @@
 <script>
+    const eventSource = new EventSource("http://localhost:8001/events");
 
-const eventSource =
-    new EventSource(
-        "http://localhost:8000/events"
-    );
-
-eventSource.onmessage = (event) => {
-    console.log(event.data);
-};
-
+    eventSource.onmessage = (event) => {
+        console.log(event.data);
+    };
 </script>
