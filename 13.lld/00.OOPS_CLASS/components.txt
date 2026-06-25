@@ -1,0 +1,91 @@
+| Concept        | Easy Meaning               |
+| -------------- | -------------------------- |
+| Class          | Blueprint                  |
+| Attribute      | What it has                |
+| Method         | What it does               |
+| Visibility     | Who can access             |
+| Abstract Class | Incomplete blueprint       |
+| Inheritance    | Child gets parent features |
+| Association    | Knows/connected to         |
+| Aggregation    | Has-a (weak ownership)     |
+| Composition    | Owns-a (strong ownership)  |
+| Dependency     | Uses temporarily           |
+| Interface      | Contract/promise           |
+| Realization    | Fulfilling the promise     |
+| Multiplicity   | How many are involved      |
+
+
+Class Diagram:
+A Class Diagram is the most important UML diagram because it represents the static structure of an object-oriented system.
+
+Components of a Class Diagram:
+1. Class: A class represents a blueprint for creating objects.
++-------------------+
+| Student           |
++-------------------+
+| id: int           |
+| name: string      |
++-------------------+
+| study()           |
+| writeExam()       |
++-------------------+
+
+Class Name: Located in the first compartment.
+    Usually singular noun
+    Starts with uppercase
+    Center aligned
+    Can be abstract or concrete
+
+Example:
+    Student
+    Employee
+    Order
+    Customer
+    Product
+
+2. Attributes (Fields / Properties):
+    Located in the second compartment.
+    Represent the state of the class. [name, data type, default value]
+    Can be public, private, or protected.
+    Example:
+        id: int
+        name: string
+        age: int
+
++-------------------+
+| Student           |
++-------------------+
+| age:int = 18      |
++-------------------+
+
+
+3. Operations (Methods): Located in third compartment.
+
++-------------------+
+| Student           |
++-------------------+
+| id:int            |
++-------------------+
+| study()           |
+| writeExam()       |
++-------------------+
+
+Syntax: visibility methodName(parameters):returnType
+
++calculateSalary():float
++login(username,password):bool
+
+
+Relationships:
+
+1. Association: Two classes are associated when one class uses the other.
+Student -------- Course
+
+
+Customers place orders
+Orders contain items
+Products belong to categories
+Payments are made through different gateways
+Employees manage products
+Admin and Seller are special types of users
+Notification service sends emails/SMS
